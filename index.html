@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>JDC Challenge</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <main class="app-shell">
+      <section class="game-panel">
+        <header class="topbar">
+          <div>
+            <p class="eyebrow">Darts Scorekeeper</p>
+            <h1>JDC Challenge</h1>
+          </div>
+          <button class="icon-button" id="newGameBtn" type="button" title="New game" aria-label="New game">
+            <span aria-hidden="true">↻</span>
+          </button>
+        </header>
+
+        <section class="setup" id="setupPanel">
+          <label for="playerNames">Player names</label>
+          <textarea id="playerNames" rows="5" placeholder="One player per line"></textarea>
+          <button class="primary" id="startBtn" type="button">Start game</button>
+        </section>
+
+        <section class="play-area hidden" id="playPanel" aria-live="polite">
+          <div class="round-card">
+            <div>
+              <p class="stage-label" id="stageLabel"></p>
+              <h2 id="turnTitle"></h2>
+              <p id="targetText"></p>
+            </div>
+            <div class="dart-count" id="dartCount"></div>
+          </div>
+
+          <div class="controls-grid">
+            <section class="control-section">
+              <h3>Target</h3>
+              <div class="number-grid" id="numberButtons"></div>
+            </section>
+
+            <section class="control-section">
+              <h3>Result</h3>
+              <div class="result-grid">
+                <button type="button" data-result="single">Single</button>
+                <button type="button" data-result="double">Double</button>
+                <button type="button" data-result="triple">Triple</button>
+                <button type="button" data-result="bull">Bull</button>
+                <button type="button" data-result="miss">Miss</button>
+                <button type="button" data-result="50">50</button>
+                <button type="button" data-result="100">100</button>
+                <button class="undo" id="undoBtn" type="button">Undo</button>
+              </div>
+            </section>
+          </div>
+
+          <section class="throw-log">
+            <h3>Current round</h3>
+            <ol id="throwList"></ol>
+          </section>
+        </section>
+      </section>
+
+      <aside class="scoreboard">
+        <div class="winner hidden" id="winnerBanner"></div>
+        <h2>Scoreboard</h2>
+        <div id="scoreboardRows" class="scoreboard-rows"></div>
+      </aside>
+    </main>
+
+    <script src="app.js"></script>
+  </body>
+</html>
